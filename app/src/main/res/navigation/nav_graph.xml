@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.pulseup.ui.auth.StartFragment"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/action_startFragment_to_signUpChooseFragment"
+            app:destination="@id/signUpChooseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpChooseFragment"
+        android:name="com.example.pulseup.ui.auth.SignUpChooseFragment"
+        android:label="fragment_sign_up_choose"
+        tools:layout="@layout/fragment_sign_up_choose" >
+        <argument
+            android:name="screenType"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_signUpChooseFragment_to_authEmailFragment"
+            app:destination="@id/authEmailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authEmailFragment"
+        android:name="com.example.pulseup.ui.auth.AuthEmailFragment"
+        android:label="fragment_auth_email"
+        tools:layout="@layout/fragment_auth_email" >
+        <argument
+            android:name="screenType"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_authEmailFragment_to_genderFragment"
+            app:destination="@id/genderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genderFragment"
+        android:name="com.example.pulseup.ui.setUp.GenderFragment"
+        android:label="fragment_gender"
+        tools:layout="@layout/fragment_gender" >
+        <action
+            android:id="@+id/action_genderFragment_to_howOldAreYouFragment"
+            app:destination="@id/howOldAreYouFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/howOldAreYouFragment"
+        android:name="com.example.pulseup.ui.setUp.HowOldAreYouFragment"
+        android:label="fragment_how_old_are_you"
+        tools:layout="@layout/fragment_how_old_are_you" >
+        <action
+            android:id="@+id/action_howOldAreYouFragment_to_whatsYourWeightFragment"
+            app:destination="@id/whatsYourWeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/whatsYourWeightFragment"
+        android:name="com.example.pulseup.ui.setUp.WhatsYourWeightFragment"
+        android:label="fragment_whats_your_weight"
+        tools:layout="@layout/fragment_whats_your_weight" >
+        <action
+            android:id="@+id/action_whatsYourWeightFragment_to_heightFragment"
+            app:destination="@id/heightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/heightFragment"
+        android:name="com.example.pulseup.ui.setUp.HeightFragment"
+        android:label="fragment_height"
+        tools:layout="@layout/fragment_height" >
+        <argument
+            android:name="weight"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_heightFragment_to_whatsYourGoalFragment"
+            app:destination="@id/whatsYourGoalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/whatsYourGoalFragment"
+        android:name="com.example.pulseup.ui.setUp.WhatsYourGoalFragment"
+        android:label="fragment_whats_your_goal"
+        tools:layout="@layout/fragment_whats_your_goal" >
+        <action
+            android:id="@+id/action_whatsYourGoalFragment_to_physicalLevelFragment"
+            app:destination="@id/physicalLevelFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/physicalLevelFragment"
+        android:name="com.example.pulseup.ui.setUp.PhysicalLevelFragment"
+        android:label="fragment_physical_level"
+        tools:layout="@layout/fragment_physical_level" >
+        <action
+            android:id="@+id/action_physicalLevelFragment_to_fillYourProfileFragment"
+            app:destination="@id/fillYourProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fillYourProfileFragment"
+        android:name="com.example.pulseup.ui.setUp.FillYourProfileFragment"
+        android:label="fragment_fill_your_profile"
+        tools:layout="@layout/fragment_fill_your_profile" />
+</navigation>

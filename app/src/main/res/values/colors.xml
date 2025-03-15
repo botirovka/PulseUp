@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_A60">#99000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="white_A9">#17FFFFFF</color>
+    <color name="white_A80">#CCFFFFFF</color>
+    <color name="black_main">#232323</color>
+    <color name="lime_green">#E2F163</color>
+    <color name="lime_dark_green">#9AA443</color>
+    <color name="purple">#896CFE</color>
+    <color name="light_purple">#B3A0FF</color>
+</resources>

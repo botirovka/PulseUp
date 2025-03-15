@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_main"
+    tools:context=".ui.setUp.PhysicalLevelFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHeadingHowOld"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Physical Activity Level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/tvPromptHowOld"
+        style="@style/MyTextAppearance.Body1.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:padding="16dp"
+        android:text="@string/test_lorem_ipsum_long"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadingHowOld" />
+
+    <RadioGroup
+        android:id="@+id/rgGenderButtons"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/toolbar">
+
+        <RadioButton
+            android:id="@+id/btnBeginner"
+            style="@style/RadioBtnPhysicalLevel"
+            android:layout_height="wrap_content"
+            android:text="@string/level_beginner" />
+
+        <RadioButton
+            android:id="@+id/btnGainWeight"
+            style="@style/RadioBtnPhysicalLevel"
+            android:layout_marginTop="32dp"
+            android:text="Intermediate" />
+
+        <RadioButton
+            android:id="@+id/btnMuscleGain"
+            style="@style/RadioBtnPhysicalLevel"
+            android:layout_marginTop="32dp"
+            tools:checked="true"
+            android:text="Advance" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnContinue"
+        style="@style/ButtonPrimary"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="@string/btn_continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

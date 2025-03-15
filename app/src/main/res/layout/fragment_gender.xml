@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_main"
+    tools:context=".ui.setUp.GenderFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHeadingGender"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="What’s Your Gender"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <TextView
+        android:id="@+id/tvPromptGender"
+        style="@style/MyTextAppearance.Body1.Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@color/light_purple"
+        android:padding="16dp"
+        android:text="@string/test_lorem_ipsum_long"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeadingGender" />
+
+    <RadioGroup
+        android:id="@+id/rgGenderButtons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btnContinue"
+        app:layout_constraintTop_toBottomOf="@id/tvPromptGender">
+
+        <RadioButton
+            android:id="@+id/btnMaleGender"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_radio_button_gender"
+            android:button="@null"
+            android:foreground="@drawable/ic_male"
+            android:foregroundGravity="center"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/MyTextAppearance.H2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Male"
+            android:textColor="@color/white" />
+
+        <RadioButton
+            android:id="@+id/btnFemaleGender"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bg_radio_button_gender"
+            android:button="@null"
+            android:foreground="@drawable/ic_female"
+            android:foregroundGravity="center"
+            tools:checked="true" />
+
+        <TextView
+            style="@style/MyTextAppearance.H2.White"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Female"
+            android:textColor="@color/white" />
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnContinue"
+        style="@style/ButtonPrimary"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgGenderButtons" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

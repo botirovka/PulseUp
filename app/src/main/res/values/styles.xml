@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Text" parent="TextAppearance.AppCompat">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0.0</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="Text.PoppinsRegular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+
+    </style>
+
+    <style name="Text.PoppinsMedium">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Text.PoppinsSemibold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="Text.PoppinsBold">
+        <item name="android:fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="MyTextAppearance.H1" parent="Text.PoppinsBold">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="MyTextAppearance.H1.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyTextAppearance.H2" parent="Text.PoppinsBold">
+        <item name="android:textSize">23sp</item>
+    </style>
+
+    <style name="MyTextAppearance.H2.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyTextAppearance.H2.White_A80">
+        <item name="android:textColor">@color/white_A80</item>
+    </style>
+
+    <style name="MyTextAppearance.H2.Lime">
+        <item name="android:textColor">@color/lime_green</item>
+    </style>
+
+    <style name="MyTextAppearance.Body1" parent="Text.PoppinsRegular">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="MyTextAppearance.Body1.Black">
+        <item name="android:textColor">@color/black_main</item>
+    </style>
+
+    <style name="MyTextAppearance.Body1.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyTextAppearance.BodyBold1" parent="Text.PoppinsBold">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="MyTextAppearance.BodyBold1.White">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MyTextAppearance.BodyBold1.Lime">
+        <item name="android:textColor">@color/lime_green</item>
+    </style>
+
+    <style name="MyTextAppearance.Button1" parent="Text.PoppinsBold">
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+    <style name="InputLayout" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxCornerRadiusTopStart">20dp</item>
+        <item name="boxCornerRadiusTopEnd">20dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="errorIconDrawable">@null</item>
+        <item name="boxCornerRadiusBottomStart">20dp</item>
+        <item name="boxCornerRadiusBottomEnd">20dp</item>
+    </style>
+
+    <style name="InputLayout.Password">
+        <item name="passwordToggleEnabled">true</item>
+        <item name="passwordToggleTint">@color/black_main</item>
+    </style>
+
+    <style name="InputEditText">
+        <item name="android:textAppearance">@style/MyTextAppearance.BodyBold1</item>
+        <item name="android:textColorHint">@color/black_A60</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="ButtonPrimary">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textAppearance">@style/MyTextAppearance.Button1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="ButtonSecondary">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+        <item name="android:textAppearance">@style/MyTextAppearance.Button1</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="ButtonGoogle">
+        <item name="android:background">@drawable/bg_button_google</item>
+        <item name="android:textAppearance">@style/MyTextAppearance.Button1</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="ClickableText" parent="MyTextAppearance.BodyBold1.Lime">
+        <item name="android:textColor">@color/color_clickable_text</item>
+    </style>
+
+    <style name="ViewSelectorLine">
+        <item name="android:background">@color/white</item>
+        <item name="android:elevation">1dp</item>
+    </style>
+
+    <style name="ViewSelectorLine.VerticalSmall">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="ViewSelectorLine.VerticalBig">
+        <item name="android:layout_width">3dp</item>
+        <item name="android:layout_height">60dp</item>
+    </style>
+
+    <style name="ViewSelectorLine.HorizontalSmall">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">2dp</item>
+    </style>
+
+    <style name="ViewSelectorLine.HorizontalBig">
+        <item name="android:layout_width">60dp</item>
+        <item name="android:layout_height">3dp</item>
+    </style>
+
+    <style name="RadioGroupYourGoal">
+        <item name="android:background">@color/light_purple</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <style name="RadioBtnYourGoal" >
+        <item name="android:textAppearance">@style/MyTextAppearance.Body1</item>
+        <item name="android:textColor">@color/black_main</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@drawable/bg_goal_radio_btn</item>
+        <item name="android:button">@null</item>
+        <item name="android:foreground">@drawable/selector_ic_radio_button_goal</item>
+        <item name="android:foregroundGravity">right|bottom</item>
+        <item name="android:paddingLeft">32dp</item>
+    </style>
+
+    <style name="RadioBtnPhysicalLevel" >
+        <item name="android:textAppearance">@style/MyTextAppearance.H2</item>
+        <item name="android:textColor">@color/color_radio_btn_text</item>
+        <item name="android:layout_width">350dp</item>
+        <item name="android:background">@drawable/bg_physical_level_radio_btn</item>
+        <item name="android:button">@null</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="RoundImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+</resources>
