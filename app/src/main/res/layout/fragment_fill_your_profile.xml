@@ -19,7 +19,7 @@
         style="@style/MyTextAppearance.H2.White"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fill Your Profile"
+        android:text="@string/heading_fill_your_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
@@ -51,6 +51,7 @@
             android:layout_gravity="center"/>
 
         <ImageView
+            android:id="@+id/iv_ic_plus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_plus_with_bg"
@@ -67,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:text="Full Name"
+        android:text="@string/full_name"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/flProfileImage" />
@@ -87,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="15dp"
-            android:hint="Your full name"
+            android:hint="@string/hint_your_full_name"
             android:imeOptions="actionNext"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -98,7 +99,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:text="Nickname"
+        android:text="@string/nickname"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nameTextInputLayout" />
@@ -118,7 +119,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="15dp"
-            android:hint="Your nickname"
+            android:hint="@string/hint_your_nickname"
             android:imeOptions="actionNext"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "430937709156",
+    "project_id": "pulseup-526a8",
+    "storage_bucket": "pulseup-526a8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430937709156:android:3e01c6679f02f1c3cbdd71",
+        "android_client_info": {
+          "package_name": "com.example.pulseup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430937709156-ur4nkfutff5fuvh67i61o6hmncnorbvt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pulseup",
+            "certificate_hash": "911b8a8ae6c0708520dde1fc215e0f736ca6bd56"
+          }
+        },
+        {
+          "client_id": "430937709156-pj80q3srrnh3afhm60gnlcf5fmqvtg65.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpo-LiLC0ZxRN3cgLeVW7ZvupBo1WqWPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430937709156-pj80q3srrnh3afhm60gnlcf5fmqvtg65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

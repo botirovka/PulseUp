@@ -21,4 +21,9 @@
     <string name="goal_others">Others</string>
     <string name="level_beginner">Beginner</string>
     <string name="btn_start">Start</string>
+    <string name="heading_fill_your_profile">Fill Your Profile</string>
+    <string name="full_name">Full Name</string>
+    <string name="nickname">Nickname</string>
+    <string name="hint_your_nickname">Your nickname</string>
+    <string name="hint_your_full_name">Your full name</string>
 </resources>

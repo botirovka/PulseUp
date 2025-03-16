@@ -4,30 +4,39 @@ import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.domain.models.Response
 import com.example.pulseup.databinding.FragmentAuthEmailBinding
+import com.example.pulseup.ui.LoadingAnimation
 import com.example.pulseup.ui.auth.Constants.LOG_IN_SCREEN_TYPE
 import com.example.pulseup.ui.auth.Constants.SIGN_UP_SCREEN_TYPE
 import com.example.pulseup.validateEmail
 import com.example.pulseup.validatePassword
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class AuthEmailFragment : Fragment() {
     private lateinit var binding: FragmentAuthEmailBinding
     private val args : AuthEmailFragmentArgs by navArgs()
-
+    private val viewModel: AuthEmailViewModel by viewModels()
+    private lateinit var loadingAnimation: LoadingAnimation
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentAuthEmailBinding.inflate(layoutInflater)
+        loadingAnimation = LoadingAnimation(binding.btnAuthEmail)
         return binding.root
     }
 
@@ -36,6 +45,44 @@ class AuthEmailFragment : Fragment() {
         setupUi()
         setupListeners()
         setupTextWatchers()
+        setupObservers()
+    }
+
+    private fun setupObservers() {
+
+        lifecycleScope.launch {
+            viewModel.authFlow.collect { response ->
+                loadingAnimation.stop()
+                setupUi()
+                when(response){
+                    is Response.Loading -> loadingAnimation.start()
+                    is Response.Error -> {
+                        binding.passwordTextInputLayout.error = response.message
+                    }
+                    is Response.Success -> {
+                        when(args.screenType){
+                            SIGN_UP_SCREEN_TYPE -> {}
+                            LOG_IN_SCREEN_TYPE -> {}
+                            else -> throw Exception("INVALID SCREEN TYPE")
+                        }
+                    }
+
+                    Response.EmailAlreadyInUse -> {
+                        binding.passwordTextInputLayout.error = "This email address already in use"
+                    }
+                    Response.EmailNotFound -> {
+                        binding.passwordTextInputLayout.error = "This email not found"
+                    }
+                    Response.LinkToGoogle -> {
+                        //here will be google link
+                        binding.passwordTextInputLayout.error = "Google link"
+                    }
+                    Response.WrongPassword -> {
+                        binding.passwordTextInputLayout.error = "The email address or password is incorrect"
+                    }
+                }
+            }
+        }
     }
 
     private fun setupUi() {
@@ -62,8 +109,8 @@ class AuthEmailFragment : Fragment() {
         binding.btnAuthEmail.setOnClickListener {
             if(validateEmail()){
                 when(args.screenType){
-                    SIGN_UP_SCREEN_TYPE -> Toast.makeText(requireContext(),"SignUP", Toast.LENGTH_SHORT).show()
-                    LOG_IN_SCREEN_TYPE -> Toast.makeText(requireContext(),"LogIn", Toast.LENGTH_SHORT).show()
+                    SIGN_UP_SCREEN_TYPE -> signUp()
+                    LOG_IN_SCREEN_TYPE -> login()
                     else -> throw Exception("INVALID SCREEN TYPE")
                 }
             }
@@ -74,8 +121,8 @@ class AuthEmailFragment : Fragment() {
                 val isPasswordValid = validatePassword()
                 if(isEmailValid and isPasswordValid){
                     when(args.screenType){
-                        SIGN_UP_SCREEN_TYPE -> findNavController().navigate(AuthEmailFragmentDirections.actionAuthEmailFragmentToGenderFragment())
-                        LOG_IN_SCREEN_TYPE -> Toast.makeText(requireContext(),"LogIn", Toast.LENGTH_SHORT).show()
+                        SIGN_UP_SCREEN_TYPE -> signUp()
+                        LOG_IN_SCREEN_TYPE -> login()
                         else -> throw Exception("INVALID SCREEN TYPE")
                     }
                     hideKeyboard(binding.passwordTextInputLayout)
@@ -88,6 +135,20 @@ class AuthEmailFragment : Fragment() {
                 false
             }
         }
+    }
+
+    private fun signUp() {
+        viewModel.register(
+            binding.emailEditText.text.toString().lowercase(),
+            binding.passwordEditText.text.toString()
+        )
+    }
+
+    private fun login() {
+        viewModel.login(
+            binding.emailEditText.text.toString().lowercase(),
+            binding.passwordEditText.text.toString()
+        )
     }
 
     private fun validateEmail(): Boolean {
@@ -143,6 +204,5 @@ class AuthEmailFragment : Fragment() {
             view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
         inputMethodManager?.hideSoftInputFromWindow(view.windowToken, 0)
     }
-
 
 }
