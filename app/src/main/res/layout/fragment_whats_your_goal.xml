@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvHeadingHowOld" />
 
     <RadioGroup
-        android:id="@+id/rgGenderButtons"
+        android:id="@+id/rgGoalsButtons"
         style="@style/RadioGroupYourGoal"
         android:layout_marginTop="32dp"
         android:layout_width="match_parent"

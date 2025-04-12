@@ -18,7 +18,7 @@ class LoadingAnimation(private val button: Button) {
                     else -> "."
                 }
                 button.text = dots
-                handler?.postDelayed(this, 500) // Update every 500ms
+                handler?.postDelayed(this, 500)
             }
         }
         handler?.post(runnable)

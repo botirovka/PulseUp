@@ -60,8 +60,10 @@ class AuthEmailFragment : Fragment() {
                         binding.passwordTextInputLayout.error = response.message
                     }
                     is Response.Success -> {
+                        viewModel.clearOldUserData()
+
                         when(args.screenType){
-                            SIGN_UP_SCREEN_TYPE -> {}
+                            SIGN_UP_SCREEN_TYPE -> {navigateToSetUp()}
                             LOG_IN_SCREEN_TYPE -> {}
                             else -> throw Exception("INVALID SCREEN TYPE")
                         }
@@ -74,15 +76,23 @@ class AuthEmailFragment : Fragment() {
                         binding.passwordTextInputLayout.error = "This email not found"
                     }
                     Response.LinkToGoogle -> {
-                        //here will be google link
+                        //here will be dialog google link
                         binding.passwordTextInputLayout.error = "Google link"
                     }
                     Response.WrongPassword -> {
                         binding.passwordTextInputLayout.error = "The email address or password is incorrect"
                     }
+
+                    Response.WrongGoogleToLink -> {
+                        //here will be dialog wrong google link
+                    }
                 }
             }
         }
+    }
+
+    private fun navigateToSetUp() {
+        findNavController().navigate(AuthEmailFragmentDirections.actionAuthEmailFragmentToGenderFragment())
     }
 
     private fun setupUi() {

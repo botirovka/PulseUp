@@ -1,24 +1,24 @@
 package com.example.pulseup.ui.setUp
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pulseup.R
 import com.example.pulseup.databinding.FragmentHowOldAreYouBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class HowOldAreYouFragment : Fragment() {
     private lateinit var binding: FragmentHowOldAreYouBinding
     private lateinit var snapHelper: LinearSnapHelper
     private lateinit var adapter: AgeAdapter
+    private val viewModel: SetUpViewModel by activityViewModels()
     private val ageList = (18..60).toList()
     private var selectedAge = 22
 
@@ -60,12 +60,15 @@ class HowOldAreYouFragment : Fragment() {
             }
         })
         binding.btnContinue.setOnClickListener {
+            viewModel.setAge(selectedAge)
             findNavController().navigate(HowOldAreYouFragmentDirections.actionHowOldAreYouFragmentToWhatsYourWeightFragment())
         }
     }
 
     private fun setupUI() {
-
+        if(viewModel.userState.value.age > 0){
+            selectedAge = viewModel.userState.value.age
+        }
         adapter = AgeAdapter(ageList) { selectedAgePos ->
             selectedAge = ageList[selectedAgePos]
             binding.rvAgeSelector.smoothScrollToPosition(selectedAgePos)
@@ -76,5 +79,7 @@ class HowOldAreYouFragment : Fragment() {
         snapHelper.attachToRecyclerView(binding.rvAgeSelector)
 
     }
+
+
 
 }

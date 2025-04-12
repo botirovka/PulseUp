@@ -1,12 +1,12 @@
 package com.example.pulseup.ui.setUp
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -18,8 +18,9 @@ class HeightFragment : Fragment() {
    private lateinit var binding: FragmentHeightBinding
     private lateinit var snapHelper: LinearSnapHelper
     private lateinit var adapter: WeightHeightAdapter
-    private val args: HeightFragmentArgs by navArgs()
+    private val viewModel: SetUpViewModel by activityViewModels()
     private val heightList = (100..250).toList()
+    private var selectedHeight: Int = 160
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +34,16 @@ class HeightFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         setupListeners()
+        if(savedInstanceState != null){
+            val selectedHeight = estimateHeight(viewModel.userState.value.weight)
+            binding.rvHeightSelector.scrollToPosition(selectedHeight-100)
+        }
+        else{
+            binding.rvHeightSelector.scrollToPosition(selectedHeight-100)
+        }
+        binding.rvHeightSelector.post {
+            binding.rvHeightSelector.smoothScrollToPosition(selectedHeight-100)
+        }
     }
 
     private fun setupListeners() {
@@ -45,7 +56,7 @@ class HeightFragment : Fragment() {
                     val position = layoutManager.getPosition(snapView!!)
 
                     if (position != RecyclerView.NO_POSITION) {
-                        val selectedHeight = heightList[position]
+                        selectedHeight = heightList[position]
                         adapter.setSelectedItem(position)
                         binding.tvHeight.text = "$selectedHeight"
                     }
@@ -53,25 +64,23 @@ class HeightFragment : Fragment() {
             }
         })
         binding.btnContinue.setOnClickListener {
+            viewModel.setHeight(selectedHeight)
             findNavController().navigate(HeightFragmentDirections.actionHeightFragmentToWhatsYourGoalFragment())
         }
     }
 
     private fun setupUI() {
+        if(viewModel.userState.value.height > 0){
+            selectedHeight = viewModel.userState.value.height
+        }
         adapter = WeightHeightAdapter(heightList, WeightHeightAdapter.TYPE_HEIGHT) { selectedHeightPos ->
-            val selectedHeight = heightList[selectedHeightPos]
-            binding.rvHeightSelector.smoothScrollToPosition(selectedHeightPos)
-            binding.tvHeight.text = "$selectedHeight"
+                val selectedHeight = heightList[selectedHeightPos]
+                binding.rvHeightSelector.smoothScrollToPosition(selectedHeightPos)
+                binding.tvHeight.text = "$selectedHeight"
         }
         binding.rvHeightSelector.adapter = adapter
         snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(binding.rvHeightSelector)
-        binding.rvHeightSelector.post {
-            val height = estimateHeight(args.weight)
-            binding.rvHeightSelector.scrollToPosition(height - 105)
-            binding.rvHeightSelector.smoothScrollToPosition(height-100)
-        }
-
     }
 
     fun estimateHeight(weight: Int): Int {

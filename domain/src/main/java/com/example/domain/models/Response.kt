@@ -9,4 +9,5 @@ sealed class Response<out T> {
     object LinkToGoogle : Response<Nothing>()
     object EmailNotFound : Response<Nothing>()
     object EmailAlreadyInUse : Response<Nothing>()
+    object WrongGoogleToLink : Response<Nothing>()
 }

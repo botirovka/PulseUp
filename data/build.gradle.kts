@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.google.firebase.firestore.ktx)
     kapt(libs.hilt.compiler)
 
+    implementation(libs.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

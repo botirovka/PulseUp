@@ -61,6 +61,8 @@ dependencies {
 
     // Dependency injection
     implementation(libs.hilt.android)
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.fragment.ktx)
 
     kapt(libs.hilt.compiler)
 
@@ -70,10 +72,12 @@ dependencies {
     implementation(libs.firebase.auth)
 
 
+
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
 
+    implementation(libs.gson)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

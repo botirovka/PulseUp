@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="16dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RectangleRoundedCornersImageView" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivWorkoutImage"
+        android:layout_width="170dp"
+        android:layout_height="130dp"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:scaleType="centerCrop"
+        android:src="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RectangleRoundedCornersImageView" />
+
+    <TextView
+        android:id="@+id/tvWorkoutTitle"
+        style="@style/MyTextAppearance.H2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black_main"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="upper body" />
+
+    <TextView
+        android:id="@+id/tvWorkoutTime"
+        style="@style/MyTextAppearance.Body1.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_time"
+        android:drawablePadding="4dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black_main"
+        app:layout_constraintStart_toStartOf="@id/tvWorkoutTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvWorkoutTitle"
+        tools:text="60 Minutes" />
+
+    <TextView
+        android:id="@+id/tvWorkoutExercisesCount"
+        style="@style/MyTextAppearance.Body1.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:drawableLeft="@drawable/ic_exercises"
+        android:drawablePadding="4dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black_main"
+        app:layout_constraintStart_toStartOf="@id/tvWorkoutTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvWorkoutTime"
+        tools:text="10 Exercises" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glVertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30"/>
+
+    <TextView
+        android:id="@+id/tvWorkoutCaloriesCount"
+        style="@style/MyTextAppearance.Body1.Black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:drawableLeft="@drawable/ic_calories"
+        android:drawablePadding="4dp"
+        android:textAllCaps="true"
+        android:textColor="@color/black_main"
+        app:layout_constraintStart_toEndOf="@id/glVertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvWorkoutTitle"
+        tools:layout_editor_absoluteX="145dp"
+        tools:text="1210 Kcal" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

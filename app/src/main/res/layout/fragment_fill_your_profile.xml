@@ -14,6 +14,18 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="1dp"
+        android:background="@color/black_A60"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/tvHeadingFillProfile"
         style="@style/MyTextAppearance.H2.White"
@@ -83,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvLableName">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailEditText"
+            android:id="@+id/nameEditText"
             style="@style/InputEditText"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -125,7 +137,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnStart"
         style="@style/ButtonSecondary"
         android:layout_width="250dp"
         android:layout_height="wrap_content"

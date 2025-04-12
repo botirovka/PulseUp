@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_main"
+    tools:context=".ui.main.TrainingFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_A60"
+        android:elevation="1dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/goBackImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:elevation="3dp"
+        android:padding="35dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvGetReady"
+        style="@style/MyTextAppearance.H1.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple"
+        android:elevation="1dp"
+        android:paddingVertical="32dp"
+        android:text="Get Ready!"
+        android:textAlignment="center"
+        android:textSize="45sp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/ivExercise" />
+
+    <ImageView
+        android:id="@+id/ivExercise"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:scaleType="fitXY"
+        android:src="@color/black"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvExerciseCount"
+        style="@style/MyTextAppearance.BodyBold1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textColor="@color/black_main"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivExercise"
+        tools:text="3/10"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/tvExerciseTitle"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_A20"
+        android:paddingVertical="4dp"
+        android:paddingStart="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tvGetReady"
+        tools:text="Dumbell Rows" />
+
+    <ImageView
+        android:id="@+id/ivNextExercise"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="fitCenter"
+        android:src="@color/black"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvExerciseTitle" />
+
+    <Button
+        android:id="@+id/btnStartPause"
+        style="@style/ButtonSecondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:background="@drawable/bg_button_secondary"
+        android:drawableTop="@drawable/ic_pause"
+        android:text="Pause"
+        android:textAppearance="@style/MyTextAppearance.H2.Black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        style="@style/MyTextAppearance.H1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:10"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@id/btnStartPause"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivNextExercise" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

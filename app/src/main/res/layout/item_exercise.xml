@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bg_exercise_item"
+    android:layout_marginBottom="16dp">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivExerciseGifImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/white"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:src="@color/lime_green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RoundImageView"
+        app:strokeColor="@color/black_A60"
+        app:strokeWidth="2dp"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
+
+    <TextView
+        android:id="@+id/tvExerciseTitle"
+        android:textAppearance="@style/Text.PoppinsMedium"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginStart="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_main"
+        app:layout_constraintStart_toEndOf="@+id/ivExerciseGifImage"
+        app:layout_constraintBottom_toBottomOf="@id/glHorizontal"
+        tools:text="Dumbbell Rows" />
+
+    <TextView
+        android:id="@+id/tvExerciseTime"
+        style="@style/TvWorkoutDescription.Purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:drawableLeft="@drawable/ic_time"
+        app:layout_constraintTop_toTopOf="@id/glHorizontal"
+        app:layout_constraintStart_toEndOf="@id/ivExerciseGifImage"
+        tools:text="00:30" />
+
+    <TextView
+        android:id="@+id/tvExerciseRepetitions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:textAppearance="@style/Text.PoppinsMedium"
+        android:textColor="@color/purple"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="3x" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

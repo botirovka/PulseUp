@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
@@ -17,6 +18,7 @@ class WhatsYourWeightFragment : Fragment() {
     private lateinit var binding: FragmentWhatsYourWeightBinding
     private lateinit var snapHelper: LinearSnapHelper
     private lateinit var adapter: WeightHeightAdapter
+    private val viewModel: SetUpViewModel by activityViewModels()
     private var selectedWeight = 55
     private val weightList = (25..200).toList()
 
@@ -64,11 +66,15 @@ class WhatsYourWeightFragment : Fragment() {
             }
         })
         binding.btnContinue.setOnClickListener {
+            viewModel.setWeight(selectedWeight)
             findNavController().navigate(WhatsYourWeightFragmentDirections.actionWhatsYourWeightFragmentToHeightFragment(selectedWeight))
         }
     }
 
     private fun setupUI() {
+        if(viewModel.userState.value.weight > 0){
+            selectedWeight = viewModel.userState.value.weight
+        }
         adapter = WeightHeightAdapter(weightList, WeightHeightAdapter.TYPE_WEIGHT) { selectedWeightPos ->
             selectedWeight = weightList[selectedWeightPos]
             binding.rvWeightSelector.smoothScrollToPosition(selectedWeightPos)
