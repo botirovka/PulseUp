@@ -1,4 +1,4 @@
-package com.example.pulseup.ui.main
+package com.example.pulseup.ui.main.workout
 
 import android.view.LayoutInflater
 import android.view.View
@@ -19,6 +19,11 @@ class WorkoutAdapter(
     companion object {
         const val TYPE_FULL_WIDTH = 0
         const val TYPE_SQUARE = 1
+    }
+
+    fun addItemToList(newItem: Workout) {
+        workoutList = workoutList.plus(newItem)
+        notifyDataSetChanged()
     }
 
     fun submitList(newItems: List<Workout>) {

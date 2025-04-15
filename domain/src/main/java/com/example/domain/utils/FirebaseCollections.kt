@@ -13,4 +13,8 @@ object FirebaseCollections {
     const val USER_HEIGHT = "height"
     const val USER_GOAL = "goal"
     const val USER_LEVEL = "level"
+    const val USER_HISTORY = "historyWorkouts"
+    const val USER_WORKOUT_COUNT = "totalWorkoutCount"
+    const val USER_WORKOUT_DURATION = "totalWorkoutDuration"
+    const val USER_WORKOUT_CALORIES = "totalWorkoutCalories"
 }

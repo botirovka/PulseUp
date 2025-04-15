@@ -64,7 +64,7 @@ class AuthEmailFragment : Fragment() {
 
                         when(args.screenType){
                             SIGN_UP_SCREEN_TYPE -> {navigateToSetUp()}
-                            LOG_IN_SCREEN_TYPE -> {}
+                            LOG_IN_SCREEN_TYPE -> {navigateToMain()}
                             else -> throw Exception("INVALID SCREEN TYPE")
                         }
                     }
@@ -93,6 +93,10 @@ class AuthEmailFragment : Fragment() {
 
     private fun navigateToSetUp() {
         findNavController().navigate(AuthEmailFragmentDirections.actionAuthEmailFragmentToGenderFragment())
+    }
+
+    private fun navigateToMain() {
+        findNavController().navigate(AuthEmailFragmentDirections.actionAuthEmailFragmentToMainFragment())
     }
 
     private fun setupUi() {

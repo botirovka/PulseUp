@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_main"
+    tools:context=".ui.main.profile.ProfileFragment">
+
+    <TextView
+        android:id="@+id/tvHeadingProfile"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:text="Profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/white"
+        android:padding="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_person"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvHeadingProfile"
+        app:shapeAppearanceOverlay="@style/RoundImageView"
+        app:strokeColor="@color/white_A80"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/tvPersonFullName"
+        style="@style/MyTextAppearance.H1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:includeFontPadding="false"
+        tools:text="Madison Smith"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivProfileImage" />
+
+    <TextView
+        android:id="@+id/tvPersonEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        tools:text="madisons@example.com"
+        android:textAppearance="@style/Text.PoppinsRegular"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonFullName" />
+
+    <View
+        android:id="@+id/viewBgProfileStats"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_profile_stats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPersonEmail" />
+
+    <View
+        android:id="@+id/viewStatsLeftStick"
+        style="@style/ViewSelectorLine.VerticalBig"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="110dp"
+        app:layout_constraintBottom_toBottomOf="@id/viewBgProfileStats"
+        app:layout_constraintStart_toStartOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toTopOf="@id/viewBgProfileStats" />
+
+    <View
+        android:id="@+id/viewStatsRightStick"
+        style="@style/ViewSelectorLine.VerticalBig"
+        android:layout_width="1dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="110dp"
+        app:layout_constraintBottom_toBottomOf="@id/viewBgProfileStats"
+        app:layout_constraintEnd_toEndOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toTopOf="@id/viewBgProfileStats" />
+
+
+    <TextView
+        android:id="@+id/tvYears"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:includeFontPadding="false"
+        tools:text="28"
+        app:layout_constraintEnd_toStartOf="@id/viewStatsRightStick"
+        app:layout_constraintStart_toEndOf="@id/viewStatsLeftStick"
+        app:layout_constraintTop_toTopOf="@id/viewBgProfileStats" />
+
+    <TextView
+        android:id="@+id/tvPromptYears"
+        style="@style/MyTextAppearance.BodyBold1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:text="Years old"
+        app:layout_constraintEnd_toStartOf="@id/viewStatsRightStick"
+        app:layout_constraintStart_toEndOf="@id/viewStatsLeftStick"
+        app:layout_constraintTop_toBottomOf="@id/tvYears" />
+
+    <TextView
+        android:id="@+id/tvWeight"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:includeFontPadding="false"
+        tools:text="75 Kg"
+        app:layout_constraintEnd_toStartOf="@id/viewStatsLeftStick"
+        app:layout_constraintStart_toStartOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toTopOf="@id/viewBgProfileStats" />
+
+    <TextView
+        android:id="@+id/tvPromptWeight"
+        style="@style/MyTextAppearance.BodyBold1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:text="Weight"
+        app:layout_constraintEnd_toStartOf="@id/viewStatsLeftStick"
+        app:layout_constraintStart_toStartOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toBottomOf="@id/tvWeight" />
+
+    <TextView
+        android:id="@+id/tvHeight"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:includeFontPadding="false"
+        tools:text="175 cm"
+        app:layout_constraintEnd_toEndOf="@id/viewBgProfileStats"
+        app:layout_constraintStart_toEndOf="@id/viewStatsRightStick"
+        app:layout_constraintTop_toTopOf="@id/viewBgProfileStats" />
+
+    <TextView
+        android:id="@+id/tvPromptHeight"
+        style="@style/MyTextAppearance.BodyBold1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:text="Height"
+        app:layout_constraintEnd_toEndOf="@id/viewBgProfileStats"
+        app:layout_constraintStart_toEndOf="@id/viewStatsRightStick"
+        app:layout_constraintTop_toBottomOf="@id/tvHeight" />
+
+    <ImageView
+        android:id="@+id/ivEditProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_profile_stats"
+        android:padding="10dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintStart_toStartOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toBottomOf="@id/viewBgProfileStats"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tvEditProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="Edit Profile Info"
+        android:textAppearance="@style/Text.PoppinsRegular"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivEditProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivEditProfile"
+        app:layout_constraintTop_toTopOf="@id/ivEditProfile" />
+
+    <View
+        android:id="@+id/viewEditProfile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_profile_menu_item"
+        android:clickable="true"
+        android:elevation="1dp"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@id/ivEditProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ivEditProfile"
+        app:layout_constraintTop_toTopOf="@id/ivEditProfile" />
+
+    <ImageView
+        android:id="@+id/ivLogout"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_profile_stats"
+        android:padding="8dp"
+        android:src="@drawable/ic_logout"
+        app:layout_constraintStart_toStartOf="@id/viewBgProfileStats"
+        app:layout_constraintTop_toBottomOf="@id/ivEditProfile"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/tvLogout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:drawableEnd="@drawable/ic_arrow_right"
+        android:text="Logout"
+        android:textAppearance="@style/Text.PoppinsRegular"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivLogout"
+        app:layout_constraintTop_toTopOf="@id/ivLogout" />
+
+
+    <View
+        android:id="@+id/viewLogout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_profile_menu_item"
+        android:clickable="true"
+        android:elevation="1dp"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="@id/ivLogout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/ivLogout"
+        app:layout_constraintTop_toTopOf="@id/ivLogout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

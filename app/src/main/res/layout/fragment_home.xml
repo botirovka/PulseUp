@@ -78,7 +78,6 @@
                 android:id="@+id/rvWorkoutList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="4dp"
                 android:nestedScrollingEnabled="false"
@@ -90,18 +89,5 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav_view"
-        android:layout_width="0dp"
-        android:background="@drawable/bg_bottom_menu"
-        app:itemIconTint="@color/black_main"
-        app:itemTextAppearanceActive="@style/MyTextAppearance.BodyBold1.White"
-        app:itemTextAppearanceInactive="@style/MyTextAppearance.BodyBold1.White_A80"
-        app:itemTextColor="@color/black_main"
-        android:layout_height="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

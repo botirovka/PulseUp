@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_main"
+    tools:context=".ui.main.stats.StatsFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBarStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tvYourProgress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvYourHistory"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="1dp"
+        app:layout_constraintTop_toBottomOf="@id/tvYourHistory"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvHeadingProfile"
+        style="@style/MyTextAppearance.H2.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:text="Stats"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <TextView
+        android:id="@+id/tvYourProgress"
+        style="@style/MyTextAppearance.H1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your progress:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/glHorizontal" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupStats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="tvLevel,tvWorkoutCount,
+        tvCaloriesCount,tvDuration"/>
+
+    <TextView
+        android:id="@+id/tvLevel"
+        style="@style/MyTextAppearance.H2.Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_logout"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="10dp"
+        android:text="Level: Beginner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvYourProgress" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_dumbbell"
+        app:layout_constraintBottom_toBottomOf="@id/tvLevel"
+        app:layout_constraintEnd_toEndOf="@id/tvLevel"
+        app:layout_constraintTop_toTopOf="@id/tvLevel"
+        app:tint="@color/black_main" />
+
+    <TextView
+        android:id="@+id/tvWorkoutCount"
+        style="@style/MyTextAppearance.H2.Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_logout"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="10dp"
+        android:text="Total trainings: 10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLevel" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_exercises"
+        app:layout_constraintBottom_toBottomOf="@id/tvWorkoutCount"
+        app:layout_constraintEnd_toEndOf="@id/tvWorkoutCount"
+        app:layout_constraintTop_toTopOf="@id/tvWorkoutCount"
+        app:tint="@color/black_main" />
+
+    <TextView
+        android:id="@+id/tvCaloriesCount"
+        style="@style/MyTextAppearance.H2.Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_logout"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="10dp"
+        android:text="Calories: 100 Kcal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvWorkoutCount" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_calories"
+        app:layout_constraintBottom_toBottomOf="@id/tvCaloriesCount"
+        app:layout_constraintEnd_toEndOf="@id/tvCaloriesCount"
+        app:layout_constraintTop_toTopOf="@id/tvCaloriesCount"
+        app:tint="@color/black_main" />
+
+    <TextView
+        android:id="@+id/tvDuration"
+        style="@style/MyTextAppearance.H2.Black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_btn_logout"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="10dp"
+        android:text="Total Time: 1200 min"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCaloriesCount" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:padding="2dp"
+        android:src="@drawable/ic_time"
+        app:layout_constraintBottom_toBottomOf="@id/tvDuration"
+        app:layout_constraintEnd_toEndOf="@id/tvDuration"
+        app:layout_constraintTop_toTopOf="@id/tvDuration"
+        app:tint="@color/black_main" />
+
+    <TextView
+        android:id="@+id/tvYourHistory"
+        style="@style/MyTextAppearance.H1.White"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Last trainings:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvDuration" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWorkoutList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="4dp"
+        android:nestedScrollingEnabled="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvYourHistory"
+        tools:listitem="@layout/item_workout_full_width" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

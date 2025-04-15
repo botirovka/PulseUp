@@ -57,7 +57,7 @@ class FillYourProfileFragment : Fragment() {
                         binding.progressBar.visibility = View.VISIBLE
                     }
                     is Response.Success -> {
-                        findNavController().navigate(FillYourProfileFragmentDirections.actionFillYourProfileFragmentToHomeFragment())
+                        findNavController().navigate(FillYourProfileFragmentDirections.actionFillYourProfileFragmentToMainFragment())
                     }
                     else -> {}
                 }

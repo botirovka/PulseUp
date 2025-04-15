@@ -1,4 +1,4 @@
-package com.example.pulseup.ui.main
+package com.example.pulseup.ui.main.workout
 
 import android.os.Bundle
 import android.view.LayoutInflater

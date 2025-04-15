@@ -1,5 +1,6 @@
-package com.example.pulseup.ui.main
+package com.example.pulseup.ui.main.workout
 
+import android.media.SoundPool
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
@@ -33,6 +34,12 @@ class TrainingFragment : Fragment() {
     private var isTimerRunning = false
     private var timeLeftInMillis = 0L
     private var currentTimerType = TimerType.TIMER_TYPE_REST
+    private val soundPool = SoundPool.Builder()
+        .setMaxStreams(1)
+        .build()
+    private var soundId: Int = 0
+    private var soundEndId: Int = 0
+    private var soundWhistleId: Int = 0
 
     enum class TimerType {
         TIMER_TYPE_EXERCISE,
@@ -51,6 +58,9 @@ class TrainingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel.loadWorkout(args.workoutId)
+        soundId = soundPool.load(requireContext(), R.raw.short_beep, 1)
+        soundEndId = soundPool.load(requireContext(), R.raw.end, 1)
+        soundWhistleId = soundPool.load(requireContext(), R.raw.whistle, 1)
         setupObservers()
         setupListeners()
     }
@@ -80,6 +90,18 @@ class TrainingFragment : Fragment() {
                 )
             }
 
+        }
+        binding.btnSkip.setOnClickListener {
+            countDownTimer.cancel()
+            timeLeftInMillis = 0
+            startTimer(isSkipped = true)
+            binding.btnStartPause.text = "Pause"
+            binding.btnStartPause.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                ContextCompat.getDrawable(requireContext(), R.drawable.ic_pause),
+                null,
+                null
+            )
         }
     }
 
@@ -136,31 +158,39 @@ class TrainingFragment : Fragment() {
         }
     }
 
-    private fun startTimer(time: Long = timeLeftInMillis) {
+    private fun startTimer(time: Long = timeLeftInMillis, isSkipped: Boolean = false) {
         isTimerRunning = true
         countDownTimer = object :CountDownTimer(time, 1000L){
             override fun onTick(millisUntilFinished: Long) {
+                if (millisUntilFinished < 4000) {
+                    soundPool.play(soundId, 1f, 1f, 1, 0, 1f)
+                }
                 timeLeftInMillis = millisUntilFinished
                 binding.tvTime.text = (millisUntilFinished / 1000).toInt().formatTime()
             }
 
             override fun onFinish() {
+
                 val exercise = viewModel.exercises.getOrNull(currentExercise)
                 when(currentTimerType){
                     TimerType.TIMER_TYPE_EXERCISE -> {
                         if(exercise == null){
+                            if(isSkipped.not()) soundPool.play(soundEndId, 1f, 1f, 1, 0, 1f)
                             finishWorkout()
                         }
                         else{
+                            if(isSkipped.not()) soundPool.play(soundWhistleId, 1f, 1f, 1, 0, 1f)
                             startRest(exercise)
                         }
                     }
                     TimerType.TIMER_TYPE_REST -> {
                         currentTimerType = TimerType.TIMER_TYPE_EXERCISE
                         if(exercise == null){
+                            if(isSkipped.not()) soundPool.play(soundEndId, 1f, 1f, 1, 0, 1f)
                             finishWorkout()
                         }
                         else{
+                            if(isSkipped.not()) soundPool.play(soundWhistleId, 1f, 1f, 1, 0, 1f)
                             startExercise(exercise)
                         }
                     }

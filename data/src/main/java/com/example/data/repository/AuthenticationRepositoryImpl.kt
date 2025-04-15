@@ -12,12 +12,16 @@ import com.example.domain.utils.FirebaseCollections.USER_FULL_NAME
 import com.example.domain.utils.FirebaseCollections.USER_GENDER
 import com.example.domain.utils.FirebaseCollections.USER_GOAL
 import com.example.domain.utils.FirebaseCollections.USER_HEIGHT
+import com.example.domain.utils.FirebaseCollections.USER_HISTORY
 import com.example.domain.utils.FirebaseCollections.USER_LEVEL
 import com.example.domain.utils.FirebaseCollections.USER_NICKNAME
 import com.example.domain.utils.FirebaseCollections.USER_SIGNED_IN_GOOGLE
 import com.example.domain.utils.FirebaseCollections.USER_SIGNED_IN_PASSWORD
 import com.example.domain.utils.FirebaseCollections.USER_TABLE_NAME
 import com.example.domain.utils.FirebaseCollections.USER_WEIGHT
+import com.example.domain.utils.FirebaseCollections.USER_WORKOUT_CALORIES
+import com.example.domain.utils.FirebaseCollections.USER_WORKOUT_COUNT
+import com.example.domain.utils.FirebaseCollections.USER_WORKOUT_DURATION
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -26,8 +30,10 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -136,7 +142,12 @@ class AuthenticationRepositoryImpl @Inject constructor(
                             USER_WEIGHT to userDto.weight,
                             USER_HEIGHT to userDto.height,
                             USER_GOAL to userDto.goal,
-                            USER_LEVEL to userDto.level
+                            USER_LEVEL to userDto.level,
+                            USER_HISTORY to userDto.historyWorkouts,
+                            USER_WORKOUT_COUNT to userDto.totalWorkoutCount,
+                            USER_WORKOUT_DURATION to userDto.totalWorkoutDuration,
+                            USER_WORKOUT_CALORIES to userDto.totalWorkoutCalories
+
                         )
                     )
                     .await()
@@ -146,7 +157,7 @@ class AuthenticationRepositoryImpl @Inject constructor(
         } catch (e: Exception) {
              emit(Response.Error(e.localizedMessage ?: "Oops, something went wrong."))
         }
-    }
+    }.flowOn(Dispatchers.IO)
 
     override suspend fun getUserInfo(): Result<UserDto> {
         return try {
@@ -226,7 +237,9 @@ class AuthenticationRepositoryImpl @Inject constructor(
             val workoutDocumentRef = firebaseFirestore.collection("workoutsBeginner").document(workoutId)
             val documentSnapshot = workoutDocumentRef.get().await()
             if (documentSnapshot.exists()) {
-                val workout = documentSnapshot.toObject(Workout::class.java)
+                val workout = documentSnapshot.toObject(Workout::class.java).also {
+                    it?.id = workoutId
+                }
                 Log.d("mydebug", "getWorkout by ID: $workout")
 
                 if (workout != null) {

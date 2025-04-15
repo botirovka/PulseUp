@@ -1,4 +1,4 @@
-package com.example.pulseup.ui.setUp
+package com.example.pulseup.ui.setUp.age
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pulseup.databinding.FragmentHowOldAreYouBinding
+import com.example.pulseup.ui.setUp.SetUpViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

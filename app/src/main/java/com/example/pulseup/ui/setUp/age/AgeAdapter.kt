@@ -1,4 +1,4 @@
-package com.example.pulseup.ui.setUp
+package com.example.pulseup.ui.setUp.age
 
 import android.util.TypedValue
 import android.view.LayoutInflater
